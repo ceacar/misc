@@ -1,0 +1,3 @@
+source ./venv_py3/bin/activate
+export PS1="loan $PS1"
+export PYTHONPATH=$PWD:$PWD/loan_processor:$PYTHONPATH

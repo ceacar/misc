@@ -1,0 +1,42 @@
+sum up certain level of binary tree
+
+
+
+lets say we have a tree
+
+5------
+|      |
+3-     8--
+| |    |  |
+2 4    7  9--
+|            |
+1            10
+
+
+sum up the thrid level so it returns 2+4+7+9 = 22
+
+
+lets traverse the entire tree in bfs way
+
+[5]
+
+[8,3]
+
+[9,7,4,2]
+
+[10 1]
+
+so the final output is  
+5,3,8,2,4,7,9,10,1
+
+solutions:
+1. just keep track of level of recursion, the level is indicated when the array is poped empty
+
+
+2. if we padding the nodes with 0
+
+first level size is 1
+second level size is 2
+thrid level size is 4
+so we can calcualte where to sum up
+
