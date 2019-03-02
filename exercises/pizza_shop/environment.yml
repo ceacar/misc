@@ -1,0 +1,10 @@
+name: pizza
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - avro=1.8.2
+  - jupyter=1.0.0
+  - pip:
+    - avro-python3==1.8.2
+
