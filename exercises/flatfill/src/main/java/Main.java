@@ -1,4 +1,5 @@
 import com.ceacar.ClockAngel;
+import com.ceacar.FlatFiller;
 //package com.ceacar;
 public class Main { 
 	public static void main(String [] args)
@@ -15,15 +16,19 @@ public class Main {
 
 
 	  //test flat fill
-	  String[] array0 = {1, 1, 0, 0, 0};
-	  String[] array1 = {0, 1, 0, 0, 1}; 
-	  String[] array2 = {1, 0, 0, 1, 1};
-	  String[] array3 = {0, 0, 0, 0, 0}; 
-	  String[] array4 = {1, 0, 1, 0, 1};
-	  string[][] input_matrix = {array0, array1, array2, array3, array4};
-
-
-
+	  int[] array0 = {1, 1, 0, 0, 0};
+	  int[] array1 = {0, 1, 0, 0, 1}; 
+	  int[] array2 = {1, 0, 0, 1, 1};
+	  int[] array3 = {0, 0, 0, 0, 0}; 
+	  int[] array4 = {1, 0, 1, 0, 1};
+	  int[][] input_matrix = {array0, array1, array2, array3, array4};
+	  try{
+		  FlatFiller  islandCounter = new FlatFiller();
+		  int total_island = islandCounter.countIsland(input_matrix);
+		  System.out.println(String.format("total_island is %s",total_island));
+	  } catch(Exception e){
+		  System.out.println("oops");
+	  }
 	}
 
 }
