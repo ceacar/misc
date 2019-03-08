@@ -45,10 +45,16 @@ public class FlatFiller{
 		int counter = 0;
 		for (int y = 0; y < this.length_y; y++){
 			for (int x = 0; x < this.length_x; x++){
+				if(this.arrayListHelper(this.matrix_seen, x, y) == 1){
+					//skipping matrix it has seen before
+					continue;
+				}
 				System.out.println(String.format("matrix_input x:%s y:%s is %d", x, y, matrix_input[y][x]));
 				if (matrix_input[y][x] == 1){
 				  counter++;
 				  this.traverseIsland(matrix_input, x, y, this.matrix_seen);
+				  System.out.println("counter");
+				  System.out.println(counter);
 				}
 			}
 		}
@@ -60,13 +66,13 @@ public class FlatFiller{
 		if (x - 1 > 0){
 			neighbor.add(new Point(x - 1, y));
 		}
-		if (x + 1 <= this.length_x){
+		if (x + 1 < this.length_x){
 			neighbor.add(new Point(x + 1, y));
 		}
 		if (y - 1 > 0){
 			neighbor.add(new Point(x, y - 1));
 		}
-		if (y + 1 <= this.length_y){
+		if (y + 1 < this.length_y){
 			neighbor.add(new Point(x, y + 1));
 		}
 
@@ -84,21 +90,28 @@ public class FlatFiller{
 		return subArrayList.set(x, newValue);
 	}
 
+	public void fancyPrint(int[][] matrix_input, ArrayList<ArrayList<Integer>> matrix_seen){
+		for(int i = 0; i < this.length_x; i++){
+			System.out.println(String.format("%s || %s", Arrays.toString(matrix_input[i]), matrix_seen.get(i)));	
+		}
+	}
 
 	public void traverseIsland(int[][] matrix_input, int x, int y, ArrayList<ArrayList<Integer>> matrix_seen){
 		ArrayList<Point> neighbors = this.getNeighbors(matrix_input, x, y);
 		System.out.println("neighbors:");
 		System.out.println(neighbors);
+		this.setArrayListHelper(matrix_seen, x, y, 1);
 
 		for (Point pt: neighbors){
-			if (this.arrayListHelper(matrix_seen, x, y) == 0) {
+			if (this.arrayListHelper(matrix_seen, pt.x, pt.y) == 0) {
 				if (matrix_input[pt.y][pt.x] == 1){
 					System.out.println(">>");
-					this.setArrayListHelper(matrix_seen, x, y, 1);
+					this.setArrayListHelper(matrix_seen, pt.x, pt.y, 1);
+					this.traverseIsland(matrix_input, pt.x, pt.y, matrix_seen);
 				}
 			}
 		}
+		System.out.println("matrix_input || matrix_seen");
+		this.fancyPrint(matrix_input, matrix_seen);
 	}
-
-
 }
