@@ -1,0 +1,4 @@
+export JUNIT_HOME=/usr/share/java/junit.jar
+export CLASSPATH=/usr/share/java/junit.jar:$PWD/src/main/java:$PWD/src/test/java
+export JAVA_HOME=/opt/share/jvm/current_java_jdk
+export PS1="jv $PS1"
