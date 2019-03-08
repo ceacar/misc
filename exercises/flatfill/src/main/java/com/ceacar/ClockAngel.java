@@ -3,7 +3,7 @@ import java.lang.*;
 
 public class ClockAngel{
   public ClockAngel(){
-    System.out.println("wtf"); 
+    System.out.println("clock angel instantiated"); 
   }
   public int getAngel(int hour, int minute){
     int hour_angle = hour * 30;

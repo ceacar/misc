@@ -1,5 +1,6 @@
 import com.ceacar.ClockAngel;
 import com.ceacar.FlatFiller;
+import com.ceacar.Cacher;
 //package com.ceacar;
 public class Main { 
 	public static void main(String [] args)
@@ -9,11 +10,6 @@ public class Main {
 	  ClockAngel ca = new ClockAngel();
 	  int angle = ca.getAngel(h, m);
 	  System.out.println(angle);
-
-   
-   
-   
-
 
 	  //test flat fill
 	  int[] array0 = {1, 1, 0, 0, 0};
@@ -29,6 +25,12 @@ public class Main {
 	  } catch(Exception e){
 		  System.out.println("oops");
 	  }
-	}
 
+	  //test cacher
+	  Cacher cah = new Cacher();		
+	  String key = "123";
+	  cah.set(key,"abc");
+	  System.out.println(cah.get(key));
+
+	}
 }
