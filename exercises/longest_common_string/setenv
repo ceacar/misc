@@ -1,0 +1,5 @@
+project_name="least_common_string"
+source ./venv_py3/bin/activate
+export PS1="lcs $PS1"
+export PYTHONPATH=$PWD:$PWD/$project_name:$PYTHONPATH
+export PROJECT_NAME="$project_name"
